@@ -15,7 +15,8 @@
 
 body
 {
-    display: inline;
+    display: flexbox;
+    flex-wrap: wrap;
     margin: 0;
     overflow: hidden;
 }
@@ -24,6 +25,7 @@ body
 
 .board
 {
+    order: 2;
     width: 100vh;
     height: 100vh;
     display: grid;
@@ -202,6 +204,7 @@ body
 
 /* Difficulty buttons */
 .borderbox {
+    order: 1;
     margin-left: 20px;
     margin-top: 20px;
     position: absolute;
