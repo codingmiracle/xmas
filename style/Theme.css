@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*, *::after, *::before
+{
+    box-sizing: border-box;
+}
+
+:root
+{
+    --bg: #2a2a2e;
+    --red: #cc231e;
+    --lightgreen: #34a65f;
+    --darkgreen: #0f8a5f;
+    --lightred: #f5624d;
+    --skyblue: #235e6f;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body
+{
+    margin: 0;
+    overflow: hidden;
+    height: 100%;
+    /* background: radial-gradient(ellipse at bottom, #235e6f 0%, #090a0f 100%); */
+    background-color: var(--skyblue);
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+main {
+    position: relative;
+    display: flexbox;
+}
+
+.text-container {
+    position: relative;
+    display: none;
+    justify-content: space-evenly;
+}
+
+.text-box {
+    font-family: Pacifico;
+    font-size: 60px;
+    color: var(--red);
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#nameplaceholder {
+    display: inline;
+    color: var(--lightgreen);
+}
+
+#nameplaceholder:hover {
+    color: var(--red);
+}
+
+#bg-image {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    bottom: 0;
+}
+
+#xmas {
+    position: absolute;
+}
+
+/* canvas */
+#screen {
+    position: absolute;
+    display: inline;
+    top: 0;
+    right: 0;
+    /* filter: drop-shadow(0 0 5px rgb(255, 255, 255)); glow um den schnee */
+}
