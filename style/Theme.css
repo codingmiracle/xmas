@@ -27,6 +27,8 @@ body
     background-color: var(--skyblue);
     background-repeat: no-repeat;
     overflow: hidden;
+    width: min-content;
+    height: min-content;
 }
 
 main {
