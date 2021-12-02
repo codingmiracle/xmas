@@ -17,9 +17,9 @@ function getParameter(parameterName) {
 function updateSize() {
     width = window.innerWidth;
     height = window.innerHeight;
-    if (width != canvas.width && height != canvas.height + 1) {
+    if (width != canvas.width && height != canvas.height) {
         canvas.width = width;
-        canvas.height = height - 1;
+        canvas.height = height;
         groundflakes = new Array();
         for (let i = 0; i < Math.floor(width / 40); i++) {
             groundflakes.push(new Snowflake(height))
