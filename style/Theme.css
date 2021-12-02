@@ -64,12 +64,7 @@ main {
 #bg-image {
     position: absolute;
     width: 100%;
-    height: auto;
     bottom: 0;
-}
-
-#xmas {
-    position: absolute;
 }
 
 /* canvas */
