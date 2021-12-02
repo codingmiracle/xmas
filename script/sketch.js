@@ -17,8 +17,15 @@ function getParameter(parameterName) {
 function updateSize() {
     width = window.innerWidth;
     height = window.innerHeight;
-    canvas.width = width;
-    canvas.height = height - 1;
+    if (width != canvas.width && height != canvas.height + 1) {
+        canvas.width = width;
+        canvas.height = height - 1;
+        groundflakes = new Array();
+        for (let i = 0; i < Math.floor(width / 40); i++) {
+            groundflakes.push(new Snowflake(height))
+            groundflakes[i].itensity = 1;
+        }
+    }
 }
 
 function drawbg() {
@@ -53,6 +60,6 @@ function reset() {
     requestAnimationFrame(draw);
 }
 
-var hupdate = setInterval(update, 1000/speed);
+var hupdate = setInterval(update, 1000 / speed);
 
 reset();

@@ -24,7 +24,7 @@ html {
 body
 {
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
     height: 100%;
     /* background: radial-gradient(ellipse at bottom, #235e6f 0%, #090a0f 100%); */
     background-color: var(--skyblue);
