@@ -21,10 +21,8 @@ function updateSize() {
         canvas.width = width;
         canvas.height = height;
         groundflakes = new Array();
-        for (let i = 0; i < Math.floor(width / 40); i++) {
-            groundflakes.push(new Snowflake(height))
-            groundflakes[i].itensity = 1;
-        }
+        snowflakes = new Array();
+        initSnow();
     }
 }
 
