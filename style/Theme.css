@@ -26,6 +26,7 @@ body
     /* background: radial-gradient(ellipse at bottom, #235e6f 0%, #090a0f 100%); */
     background-color: var(--skyblue);
     background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 main {
@@ -60,6 +61,7 @@ main {
     position: absolute;
     width: 100%;
     bottom: 0;
+    overflow: hidden;
 }
 
 /* canvas */
