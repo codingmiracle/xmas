@@ -1,6 +1,7 @@
 var width = document.width;
 var height = document.height;
 var canvas = document.getElementById("screen");
+var ctx = canvas.getContext("2d");
 
 var nameplaceholder = document.getElementById("nameplaceholder")
 
@@ -42,6 +43,7 @@ function update() {
 function draw() {
     drawbg()
     drawSnow();
+    tree.draw();
     requestAnimationFrame(draw);
 }
 
@@ -57,6 +59,9 @@ function reset() {
     initSnow();
     requestAnimationFrame(draw);
 }
+
+tree = new Xmastree(100, 100);
+
 
 var hupdate = setInterval(update, 1000 / speed);
 

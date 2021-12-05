@@ -50,7 +50,7 @@ main {
 }
 
 #nameplaceholder:hover {
-    color: var(--red);
+    filter: drop-shadow(0 0 10px rgb(250, 238, 75));
 }
 
 #bg-image {

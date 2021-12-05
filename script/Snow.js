@@ -1,4 +1,3 @@
-var canvas = document.getElementById("screen");
 var maxFlakes = 200;
 maxFlakeSize = 10;
 
@@ -10,7 +9,7 @@ class Snowflake {
         this.itensity = Math.floor((Math.random() * 8) + 2) / 10;
         this.g = Math.floor(Math.random() * 4) + 1;
         this.behavior = Math.floor((Math.random() * 2) - 1);
-        this.ctx = canvas.getContext("2d");
+        ctx = canvas.getContext("2d");
     }
 
     update() {
@@ -19,10 +18,10 @@ class Snowflake {
     }
 
     draw() {
-        this.ctx.beginPath();
-        this.ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
-        this.ctx.fillStyle = 'rgba(255, 255, 255, ' + this.itensity + ')'
-        this.ctx.fill();
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+        ctx.fillStyle = 'rgba(255, 255, 255, ' + this.itensity + ')'
+        ctx.fill();
     }
 
     hitsGround() {
