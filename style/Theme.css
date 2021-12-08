@@ -2,7 +2,6 @@
 
 *, *::after, *::before
 {
-    box-sizing: border-box;
     margin: 0;
 }
 
@@ -29,14 +28,10 @@ body
     height: fit-content;
 }
 
-main {
-    position: relative;
-}
-
 .text-container {
+    position: relative;
     display: flex;
     justify-content: center;
-    position: relative;
 }
 
 .text-box {
@@ -45,6 +40,7 @@ main {
     color: var(--red);
     padding-left: 50px;
     padding-right: 50px;
+    text-align: center;
 }
 
 #nameplaceholder {
@@ -67,8 +63,5 @@ main {
 /* canvas */
 #screen {
     position: absolute;
-    display: block;
-    top: 0;
-    right: 0;
     /* filter: drop-shadow(0 0 5px rgb(255, 255, 255)); glow um den schnee */
 }

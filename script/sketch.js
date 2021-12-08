@@ -19,12 +19,12 @@ function updateSize() {
     width = window.innerWidth;
     height = window.innerHeight;
     if (width != canvas.width && height != canvas.height) {
-        canvas.width = width;
-        canvas.height = height;
         groundflakes = new Array();
         snowflakes = new Array();
         initSnow();
     }
+    canvas.width = width;
+    canvas.height = height;
 }
 
 function drawbg() {
