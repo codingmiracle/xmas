@@ -25,7 +25,7 @@ class Snowflake {
     }
 
     hitsGround() {
-        if(this.y >= height || this.x < 0 || this.x > width) {
+        if (this.y >= height || this.x < 0 || this.x > width) {
             return 1;
         }
         return 0;
@@ -37,24 +37,28 @@ var groundflakes = new Array();
 
 function initSnow() {
     for (let i = 0; i < maxFlakes; i++) {
-        snowflakes.push(new Snowflake(Math.floor(Math.random()*height)));
+        snowflakes.push(new Snowflake(Math.floor(Math.random() * height)));
     }
-    for (let i = 0; i < Math.floor(width / 40);i++) {
+
+    for (let i = 0; i < Math.floor(width / 40); i++) {
         groundflakes.push(new Snowflake(height))
         groundflakes[i].itensity = 1;
     }
 }
 
 function updateSnow() {
-    for(let i = 0; i < snowflakes.length; i++) {
+    for (let i = 0; i < snowflakes.length; i++) {
         snowflakes[i].update();
-        if(snowflakes[i].hitsGround()) {
+        if (snowflakes[i].hitsGround()) {
             snowflakes.splice(i, 1);
         }
     }
-    while(snowflakes.length < maxFlakes) {
-        snowflakes.push(new Snowflake(-10));
+    if (!window.mobileCheck()) {
+        while (snowflakes.length < maxFlakes) {
+            snowflakes.push(new Snowflake(-10));
+        }
     }
+
 }
 
 function drawSnow() {
