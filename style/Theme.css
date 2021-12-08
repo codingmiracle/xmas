@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 *, *::after, *::before
 {
     box-sizing: border-box;
+    margin: 0;
 }
 
 :root
@@ -16,14 +16,17 @@
     --skyblue: #235e6f;
 }
 
+html {
+    overflow: hidden;
+}
+
 body
 {
     /* background: radial-gradient(ellipse at bottom, #235e6f 0%, #090a0f 100%); */
     background-color: var(--skyblue);
     background-repeat: no-repeat;
-    overflow: hidden;
     width: 100%;
-    height: min-content;
+    height: fit-content;
 }
 
 main {
@@ -55,6 +58,7 @@ main {
 
 #bg-image {
     position: absolute;
+    left: 0;
     width: 100%;
     bottom: 0;
     overflow: hidden;
@@ -63,7 +67,7 @@ main {
 /* canvas */
 #screen {
     position: absolute;
-    display: inline;
+    display: block;
     top: 0;
     right: 0;
     /* filter: drop-shadow(0 0 5px rgb(255, 255, 255)); glow um den schnee */
