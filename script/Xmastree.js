@@ -1,3 +1,10 @@
+var tree = document.getElementsByClassName("tree");
+var layers = document.getElementsByClassName("layer");
+var lines = document.getElementsByClassName("line");
+var stars = document.getElementsByClassName("star");
+var present = document.getElementsByClassName("pressie");
+var bubbles = document.getElementsByClassName("bauble"); 
+
 class Xmastree {
     constructor(x, y) {
         this.x = x;
@@ -18,6 +25,7 @@ class Xmastree {
 
     }
 }
+
 
 class MouseBubble {
     constructor(x, y) {

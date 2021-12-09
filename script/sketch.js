@@ -51,7 +51,6 @@ function update() {
 function draw() {
     drawbg()
     drawSnow();
-    tree.draw();
     requestAnimationFrame(draw);
 }
 
@@ -60,14 +59,12 @@ function reset() {
     nameplaceholder.innerHTML = getParameter("name");
     if(window.mobileCheck()) {
         bg.width = window.innerWidth;
-        bg.style.bottom = 0;
+        bg.style.display = "none";
     }
     updateSize();
     initSnow();
     requestAnimationFrame(draw);
 }
-
-tree = new Xmastree(100, 100);
 
 
 var hupdate = setInterval(update, 1000 / speed);
