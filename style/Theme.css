@@ -80,9 +80,12 @@ body
     position: absolute;
     height: 100%;
     width: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
     max-width: 500px;
     min-height: 450px;
     max-height: 800px;
+    bottom: 0;
   }
   
   .base {
@@ -91,7 +94,7 @@ body
     height: 20px;
     background: #CCC;
     border-radius: 100%;
-    bottom: 10px;
+    bottom: 0px;
   }
   
   .base:after {

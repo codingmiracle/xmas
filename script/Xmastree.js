@@ -5,6 +5,13 @@ var stars = document.getElementsByClassName("star");
 var present = document.getElementsByClassName("pressie");
 var bubbles = document.getElementsByClassName("bauble"); 
 
+console.log(tree);
+console.log(layers);
+console.log(lines);
+console.log(stars);
+console.log(bubbles);
+console.log(present);
+
 class Xmastree {
     constructor(x, y) {
         this.x = x;
@@ -101,8 +108,8 @@ function drawBubbles() {
     });
 }
 
-// - add christmastree
+// - add christmastree decoration
 // - test Mouse bubbles
-// - christmas mäuse ???
-// - Geschenke ???
+// - add Geschenke 
+// - add laptop with link to description page
 // click bubble on tree geschenke, ...
