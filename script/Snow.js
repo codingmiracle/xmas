@@ -36,6 +36,8 @@ var snowflakes = new Array();
 var groundflakes = new Array();
 
 function initSnow() {
+    snowflakes = new Array();
+    groundflakes = new Array();
     for (let i = 0; i < maxFlakes; i++) {
         snowflakes.push(new Snowflake(Math.floor(Math.random() * height)));
     }

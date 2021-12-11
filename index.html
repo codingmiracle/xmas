@@ -13,11 +13,23 @@
 <body>
     <img id="bg-image" class="img-responsive" src="media/background-winterlandscape.png">
     <div class="tree-container">
-        <div class="star" onclick=""></div>
-        <div class="pressie">
-            <div class="cover"></div>
-            <div class="wrap"></div>
+        <!-- <div class="star" onclick=""></div> -->
+        <div class="tooltip pressie" onclick="reset()">
+            <div class="tooltiptext">Reset</div>
+            <div class="pressie">
+                <div class="cover"></div>
+                <div class="wrap"></div>
+            </div>
         </div>
+
+        <div class="tooltip b1">
+            <div class="tooltiptext">bubble</div>
+            <div class="mousebubble">
+                <div class="innerbubble"></div>
+            </div>
+        </div>
+        
+
         <div class="tree">
 
             <div class="base"> </div>
@@ -44,7 +56,7 @@
             </div>
         </div>
     </div>
-    
+
     <canvas id="screen"></canvas>
 
     <div class="text-container">

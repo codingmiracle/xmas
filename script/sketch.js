@@ -3,6 +3,8 @@ var height = document.height;
 var canvas = document.getElementById("screen");
 var ctx = canvas.getContext("2d");
 var bg = document.getElementById("bg-image");
+var mouseX;
+var mouseY;
 
 var nameplaceholder = document.getElementById("nameplaceholder")
 
@@ -36,7 +38,6 @@ function updateSize() {
 }
 
 function drawbg() {
-    ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, width, height);
     groundflakes.forEach(function (flake) {
         flake.draw();
@@ -63,9 +64,13 @@ function reset() {
     }
     updateSize();
     initSnow();
-    requestAnimationFrame(draw);
+    document.addEventListener('mousemove', (event) => {
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+    })
 }
 
+requestAnimationFrame(draw);
 
 var hupdate = setInterval(update, 1000 / speed);
 

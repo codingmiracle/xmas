@@ -67,6 +67,55 @@ body
 }
 
 
+/* tooltips and mousebubbles */
+.tooltip {
+  color: transparent;
+  position: absolute;
+}
+
+.tooltiptext {
+  color: inherit;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 1000; 
+  display: inline;
+}
+
+.tooltip:hover {
+  color: #fff;
+}
+
+.mousebubble {
+  color: transparent;
+  position: relative;
+  border-radius: 100%;
+  border: 2px solid #fff;
+  width: 60px;
+  height: 60px;
+  animation: zoom-in-zoom-out 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.innerbubble {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 100%;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.tooltip.b1 {
+  top: 100px;
+  left: 100px;
+
+}
+
+
 /* xmas-tree */
 .tree-container {
     position: absolute;
@@ -86,6 +135,7 @@ body
     min-height: 450px;
     max-height: 800px;
     bottom: 0;
+    /* display: none; */
   }
   
   .base {
@@ -117,7 +167,7 @@ body
       border-bottom: 100px solid #388a3f;
       left: 50%;
       transform: translate(-50%, 0);
-      bottom: 385px;
+      bottom: 380px;
     }
   
   .layer.two{
@@ -126,7 +176,7 @@ body
       border-right: 70px solid transparent;
       border-bottom: 140px solid #56c83f;
       width: 5%;
-      bottom: 295px;
+      bottom: 290px;
   }
   
   .layer.three{
@@ -135,7 +185,7 @@ body
       border-left: 90px solid transparent;
       border-right: 90px solid transparent;
       border-bottom: 180px solid #388a3f;
-      bottom: 195px;
+      bottom: 190px;
   }
   
   .layer.four{
@@ -144,7 +194,7 @@ body
     border-left: 110px solid transparent;
     border-right: 110px solid transparent;
     border-bottom: 220px solid #56c83f;
-    bottom: 45px;
+    bottom: 40px;
   }
    
   
@@ -181,16 +231,6 @@ body
     height: 13px;
     background: #FFE066;
   } 
-  
-  .deco {
-    position: relative;
-    top: 130px; left: 30px;
-    width: 50px;
-    height: 20px;
-    background: #EF476F;
-  /*   border-radius: 100% 100% 100% 100%; */
-    transform: rotate(0deg);
-  }
 
   
   .line {
@@ -233,14 +273,19 @@ body
     border: 1px dashed #FFF;
     transform: rotate(-30deg);
   }
-  
+
   .pressie {
     z-index: 1;
-    position: relative;
-    top: 325px;  left: 120px;
+    position: absolute;
     width: 60px;
     height: 60px;
     background: #F45B69;
+  }
+
+  .tooltip.pressie {
+    bottom: 40px;
+    left: 275px;
+    background: transparent;
   }
   
   .cover {
@@ -287,6 +332,31 @@ body
                      0 -1px 10px #CCC
   }
   
+  @keyframes zoom-in {
+    0% {
+      transform: scale(0, 0);
+      bottom: -100%;
+      left: 24%;
+    }
+    100% {
+      transform: scale(1, 1);
+      bottom: 0;
+      left: 24%;
+    }
+  }
+
+  @keyframes zoom-in-zoom-out {
+    0% {
+      transform: scale(.5, .5);
+    }
+    50% {
+      transform: scale(1, 1);
+    }
+    100% {
+      transform: scale(.5, .5);
+    }
+  }
+
   .star {
      z-index: 1;
      position: absolute;
@@ -294,6 +364,7 @@ body
      color: red;
      width: 0px;
      height: 0px;
+     bottom: 0px;
      border-right:  100px solid transparent;
      border-bottom: 70px  solid #FFE066;
      border-left:   100px solid transparent;
