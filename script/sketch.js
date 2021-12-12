@@ -68,6 +68,7 @@ function reset() {
         mouseX = event.clientX;
         mouseY = event.clientY;
     })
+    resetanimations();
 }
 
 requestAnimationFrame(draw);

@@ -1,17 +1,33 @@
-var tree = document.getElementsByClassName("tree");
+var container = document.getElementsByClassName("tree-container")[0];
+var tree = document.getElementsByClassName("tree")[0];
 var layers = document.getElementsByClassName("layer");
 var lines = document.getElementsByClassName("line");
 var stars = document.getElementsByClassName("star");
 var present = document.getElementsByClassName("pressie");
 var bubbles = document.getElementsByClassName("bauble");
+var tooltips = document.getElementsByClassName("tooltip");
 
-console.log(tree);
-console.log(layers);
-console.log(lines);
-console.log(stars);
-console.log(bubbles);
-console.log(present);
+function decorateTree() {
+    tooltips[1].style.visibility = "hidden";
+    setTimeout(() => {
+        tooltips[0].style.visibility = "visible";
+        tooltips[0].style.animation = "fall-in 1.5s";
+    }, 500);
+    for(let i in lines.length) {
+        lines[i].style.animation = "zoom-in 1s";
+        lines[i].style.visibility = "visible";
+    }
+    for(let i in lines.length) {
+        bubbles[i].style.animation = "zoom-in 1s";
+        bubbles[i].style.visibility = "visible";
+    }
+}
 
+function resetanimations() {
+    tooltips[0].style.visibility = "hidden";
+    tooltips[0].style.animation = "";
+    tooltips[1].style.visibility = "visible";
+}
 class Bubble {
     constructor(x, y, size) {
 

@@ -79,6 +79,7 @@ body
   font-size: 20px;
   font-weight: 1000; 
   display: inline;
+  margin: 0 auto;
 }
 
 .tooltip:hover {
@@ -89,19 +90,21 @@ body
   color: transparent;
   position: relative;
   border-radius: 100%;
-  border: 2px solid #fff;
+  border: 5px solid #fff;
   width: 60px;
   height: 60px;
   animation: zoom-in-zoom-out 1.2s;
   animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-out;
+  transform: translate(-50%, 0);
+  margin: 0 auto;
 }
 
 .innerbubble {
-  width: 50px;
-  height: 50px;
-  background: rgba(255, 255, 255, 0.6);
+  width: 45px;
+  height: 45px;
   border-radius: 100%;
+  border: 2px solid #fff;
   position: relative;
   left: 50%;
   top: 50%;
@@ -109,10 +112,10 @@ body
 }
 
 
-.tooltip.b1 {
-  top: 100px;
-  left: 100px;
-
+.tooltip.decorate {
+  bottom: 200px;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 
@@ -123,6 +126,7 @@ body
     width: 50%;
     height: 90%;
     bottom: 0;
+    visibility: visible;
   }
   
   .tree {
@@ -135,7 +139,6 @@ body
     min-height: 450px;
     max-height: 800px;
     bottom: 0;
-    /* display: none; */
   }
   
   .base {
@@ -202,6 +205,7 @@ body
     z-index: 1;
     position: relative;
     border-radius: 100%;
+    visibility: hidden;
   }
   
   .bauble.one { 
@@ -242,6 +246,7 @@ body
     background: #FFE066;
     border: 1px dashed #FFF;
     transform: rotate(-30deg);
+    visibility: hidden;
   }
   
   .line.two {
@@ -286,6 +291,8 @@ body
     bottom: 40px;
     left: 275px;
     background: transparent;
+    visibility: hidden;
+    animation-timing-function: ease-out;
   }
   
   .cover {
@@ -332,28 +339,43 @@ body
                      0 -1px 10px #CCC
   }
   
-  @keyframes zoom-in {
+   @keyframes fall-in {
     0% {
-      transform: scale(0, 0);
-      bottom: -100%;
-      left: 24%;
+      bottom: 100%;
+    }
+    80% {
+      bottom: 10px;
+      transform: scale(1, 1);
+    }
+    90% {
+      transform: scale(1, .6);
     }
     100% {
       transform: scale(1, 1);
-      bottom: 0;
-      left: 24%;
+    }
+  }
+
+  @keyframes zoom-in {
+    0% {
+      transform: scale(0.0);
+    }
+    100% {
+      transform: scale(1, 1);
     }
   }
 
   @keyframes zoom-in-zoom-out {
     0% {
-      transform: scale(.5, .5);
+      transform: scale(.6, .6);
+      opacity: 1;
     }
-    50% {
+    80% {
       transform: scale(1, 1);
+      opacity: 1;
     }
     100% {
-      transform: scale(.5, .5);
+      transform: scale(.6, .6);
+      opacity: .1;
     }
   }
 
@@ -403,4 +425,5 @@ body
     transform: rotate(23deg) scale(.1);
     position: relative;
     top: 102px; left: -60px;
+    visibility: hidden;
   }
