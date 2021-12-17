@@ -13,13 +13,14 @@ function decorateTree() {
         tooltips[0].style.visibility = "visible";
         tooltips[0].style.animation = "fall-in 1.5s";
     }, 500);
-    for(let i in lines.length) {
-        lines[i].style.animation = "zoom-in 1s";
+    for(let i = 0; i < lines.length; i++) {
         lines[i].style.visibility = "visible";
     }
-    for(let i in lines.length) {
-        bubbles[i].style.animation = "zoom-in 1s";
-        bubbles[i].style.visibility = "visible";
+    for(let i = 0; i < bubbles.length; i++) {
+        setTimeout(() => {
+            bubbles[i].style.animation = "zoom-in 0.5s";
+            bubbles[i].style.visibility = "visible";
+        }, Math.random()*1000);
     }
 }
 
@@ -27,6 +28,15 @@ function resetanimations() {
     tooltips[0].style.visibility = "hidden";
     tooltips[0].style.animation = "";
     tooltips[1].style.visibility = "visible";
+    for(let i = 0; i < lines.length; i++) {
+        lines[i].style.visibility = "hidden";
+    }
+    for(let i = 0; i < bubbles.length; i++) {
+        setTimeout(() => {
+            bubbles[i].style.animation = "";
+            bubbles[i].style.visibility = "hidden";
+        }, Math.random()*1000);
+    }
 }
 class Bubble {
     constructor(x, y, size) {
@@ -130,8 +140,7 @@ class Bubble {
 // }
 
 
-// - add christmastree decoration
-// - test Mouse bubbles
 // - add Geschenke 
 // - add laptop with link to description page
-// click bubble on tree geschenke, ...
+// - add present page
+// - link with myAwesomewebsite

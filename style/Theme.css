@@ -206,34 +206,44 @@ body
     position: relative;
     border-radius: 100%;
     visibility: hidden;
+    width: 15px;
+    height: 15px;
   }
   
   .bauble.one { 
-    top: 65px;
-    width: 13px;
-    height: 13px;
-    background: #FFE066;
+    top: 45px; left: -20px;
+    background: #ff6956;
+    width: 20px;
+    height: 20px;
   } 
   
   .bauble.two { 
-    top: 105px; left: -30px;
-    width: 13px;
-    height: 13px;
+    top: 105px; left: 30px;
     background: #FFE066;
   } 
   
   .bauble.three { 
-    top: 110px; left: 15px;
-    width: 13px;
-    height: 13px;
-    background: #FFE066;
+    top: 90px; left: -30px;
+    background: #158dfd;
   } 
   
-  .bauble.four { 
-    top: 163px; left: -30px;
-    width: 13px;
-    height: 13px;
-    background: #FFE066;
+  .bauble.four {
+    top: 140px; left: 40px;
+    background: #ff6956;
+    width: 20px;
+    height: 20px;
+  }
+
+  .bauble.five { 
+    top: 140px; left: -30px;
+    background: #ff4dff;
+    width: 20px;
+    height: 20px;
+  } 
+
+  .bauble.six { 
+    top: 150px; left: 120px;
+    background: #158dfd;
   } 
 
   
@@ -270,7 +280,7 @@ body
   }
   
   .line.four {
-    top: 66px; left: -90px;
+    top: 36px; left: -90px;
     width: 230%;
     min-width: 180px;
     height: 0;
