@@ -1,18 +1,24 @@
-var container = document.getElementsByClassName("tree-container")[0];
-var tree = document.getElementsByClassName("tree")[0];
-var layers = document.getElementsByClassName("layer");
 var lines = document.getElementsByClassName("line");
-var stars = document.getElementsByClassName("star");
 var present = document.getElementsByClassName("pressie");
 var bubbles = document.getElementsByClassName("bauble");
 var tooltips = document.getElementsByClassName("tooltip");
+
+console.log(bubbles);
 
 function decorateTree() {
     tooltips[1].style.visibility = "hidden";
     setTimeout(() => {
         tooltips[0].style.visibility = "visible";
         tooltips[0].style.animation = "fall-in 1.5s";
+        document.getElementsByClassName("box")[0].style.animation = "fall-in .5s";
+        document.getElementsByClassName("box")[0].style.visibility = "visible";
     }, 500);
+    for(let  i = 0; i<5;i++) {
+        bubbles[i].style.backgroundColor = getRandomColor();
+        let size = Math.floor(Math.random() * 10) + 10;
+        bubbles[i].style.width = size;
+        bubbles[i].style.height = size;
+    }
     for(let i = 0; i < lines.length; i++) {
         lines[i].style.visibility = "visible";
     }
@@ -28,6 +34,8 @@ function resetanimations() {
     tooltips[0].style.visibility = "hidden";
     tooltips[0].style.animation = "";
     tooltips[1].style.visibility = "visible";
+    document.getElementsByClassName("box")[0].style.animation = "";
+        document.getElementsByClassName("box")[0].style.visibility = "hidden";
     for(let i = 0; i < lines.length; i++) {
         lines[i].style.visibility = "hidden";
     }
@@ -38,11 +46,90 @@ function resetanimations() {
         }, Math.random()*1000);
     }
 }
-class Bubble {
-    constructor(x, y, size) {
 
+//drag and drop decoration:
+
+interact('.bauble')
+  .draggable({
+    onmove: function(event) {
+      const target = event.target;
+
+      const dataX = target.getAttribute('data-x');
+      const dataY = target.getAttribute('data-y');
+      const initialX = parseFloat(dataX) || 0;
+      const initialY = parseFloat(dataY) || 0;
+
+      const deltaX = event.dx;
+      const deltaY = event.dy;
+
+      const newX = initialX + deltaX;
+      const newY = initialY + deltaY;
+
+      target
+        .style
+        .transform = `translate(${newX}px, ${newY}px)`;
+
+      target.setAttribute('data-x', newX);
+      target.setAttribute('data-y', newY);
     }
-}
+  })
+
+  interact('.star')
+  .draggable({
+    onmove: function(event) {
+      const target = event.target;
+
+      const dataX = target.getAttribute('data-x');
+      const dataY = target.getAttribute('data-y');
+      const initialX = parseFloat(dataX) || 0;
+      const initialY = parseFloat(dataY) || 0;
+
+      const deltaX = event.dx;
+      const deltaY = event.dy;
+
+      const newX = initialX + deltaX;
+      const newY = initialY + deltaY;
+
+      target
+        .style
+        .transform = `translate(${newX}px, ${newY}px)`;
+
+      target.setAttribute('data-x', newX);
+      target.setAttribute('data-y', newY);
+    }
+  })
+
+  interact('.dropzone')
+  .dropzone({
+    accept: '.bauble',
+    overlap: 0.75,
+    ondropactivate: function (event) {
+      const item = event.relatedTarget
+      item.classList.add('dragging')
+    },
+    ondropdeactivate: function (event) {
+      const item = event.relatedTarget
+      item.classList.remove('dragging', 'cannot-drop')
+    },
+    ondragenter: function(event) {
+      const item = event.relatedTarget
+      item.classList.remove('cannot-drop')
+      item.classList.add('can-drop')
+    },
+    ondragleave: function(event) {
+      const item = event.relatedTarget
+      item.classList.remove('can-drop')
+      item.classList.add('cannot-drop')
+    },
+    ondropactivate: function (event) {
+        // add active dropzone feedback
+        event.target.classList.add('drop-active')
+    },
+    ondropdeactivate: function (event) {
+        // remove active dropzone feedback
+        event.target.classList.remove('drop-active')
+      }
+  })
 
 
 // class MouseBubble {
