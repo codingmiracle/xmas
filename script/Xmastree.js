@@ -3,6 +3,8 @@ var present = document.getElementsByClassName("pressie");
 var bubbles = document.getElementsByClassName("bauble");
 var tooltips = document.getElementsByClassName("tooltip");
 
+console.log(bubbles);
+
 function decorateTree() {
     tooltips[1].style.visibility = "hidden";
     setTimeout(() => {

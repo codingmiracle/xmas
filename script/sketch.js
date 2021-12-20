@@ -80,7 +80,7 @@ function reset() {
     if(mobileCheck()) {
         bg.style.display = "none";
         document.getElementsByClassName(".tooltip.pressie")[0].style.left = 0;
-        document.getElementsByClassName("overlay")[0].style.display = "";
+        document.getElementsByClassName("overlay")[0].style.display = "block";
     }
     updateSize();
     initSnow();
