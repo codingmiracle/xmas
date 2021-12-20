@@ -3,18 +3,21 @@ var present = document.getElementsByClassName("pressie");
 var bubbles = document.getElementsByClassName("bauble");
 var tooltips = document.getElementsByClassName("tooltip");
 
-console.log(bubbles);
-
 function decorateTree() {
     tooltips[1].style.visibility = "hidden";
     setTimeout(() => {
         tooltips[0].style.visibility = "visible";
         tooltips[0].style.animation = "fall-in 1.5s";
-        document.getElementsByClassName("box")[0].style.animation = "fall-in .5s";
-        document.getElementsByClassName("box")[0].style.visibility = "visible";
+        if(!mobileCheck()) {
+            document.getElementsByClassName("box")[0].style.animation = "fall-in .5s";
+            document.getElementsByClassName("box")[0].style.visibility = "visible";
+        }
     }, 500);
     for(let  i = 0; i<5;i++) {
         bubbles[i].style.backgroundColor = getRandomColor();
+        if(mobileCheck()) {
+            bubbles[i].style.display = "none";
+        }
         let size = Math.floor(Math.random() * 10) + 10;
         bubbles[i].style.width = size;
         bubbles[i].style.height = size;
@@ -23,10 +26,18 @@ function decorateTree() {
         lines[i].style.visibility = "visible";
     }
     for(let i = 0; i < bubbles.length; i++) {
-        setTimeout(() => {
-            bubbles[i].style.animation = "zoom-in 0.5s";
-            bubbles[i].style.visibility = "visible";
-        }, Math.random()*1000);
+        if(i>5) {
+            setTimeout(() => {
+                bubbles[i].style.animation = "zoom-in 0.5s";
+                bubbles[i].style.visibility = "visible";
+            }, Math.random()*1000);
+        } else {
+            setTimeout(() => {
+                bubbles[i].style.animation = "zoom-in 0.5s";
+                bubbles[i].style.visibility = "visible";
+            }, (Math.random()*500) + 500);
+        }
+        
     }
 }
 
@@ -47,34 +58,13 @@ function resetanimations() {
     }
 }
 
+function closepopup() {
+    document.getElementsByClassName("overlay")[0].style.display = "none";
+}
+
 //drag and drop decoration:
 
 interact('.bauble')
-  .draggable({
-    onmove: function(event) {
-      const target = event.target;
-
-      const dataX = target.getAttribute('data-x');
-      const dataY = target.getAttribute('data-y');
-      const initialX = parseFloat(dataX) || 0;
-      const initialY = parseFloat(dataY) || 0;
-
-      const deltaX = event.dx;
-      const deltaY = event.dy;
-
-      const newX = initialX + deltaX;
-      const newY = initialY + deltaY;
-
-      target
-        .style
-        .transform = `translate(${newX}px, ${newY}px)`;
-
-      target.setAttribute('data-x', newX);
-      target.setAttribute('data-y', newY);
-    }
-  })
-
-  interact('.star')
   .draggable({
     onmove: function(event) {
       const target = event.target;
@@ -121,14 +111,7 @@ interact('.bauble')
       item.classList.remove('can-drop')
       item.classList.add('cannot-drop')
     },
-    ondropactivate: function (event) {
-        // add active dropzone feedback
-        event.target.classList.add('drop-active')
-    },
-    ondropdeactivate: function (event) {
-        // remove active dropzone feedback
-        event.target.classList.remove('drop-active')
-      }
+    
   })
 
 

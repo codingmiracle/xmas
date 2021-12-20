@@ -116,6 +116,63 @@ body {
 }
 
 
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: visible;
+  opacity: 1;
+  display: none;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 200px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .popup{
+    width: 70%;
+  }
+}
+
+
 /* xmas-tree */
 .tree-container {
   position: absolute;
@@ -140,10 +197,6 @@ body {
 
 .dropzone {
   border: dashed 4px transparent;
-}
-
-.drop-active {
-  border-color: #aaa
 }
 
 .base {
@@ -226,19 +279,19 @@ body {
   height: 15px;
 }
 
-.bauble.two {
+.bauble#two {
   top: 105px;
   left: 30px;
   background: #FFE066;
 }
 
-.bauble.three {
+.bauble#three {
   top: 90px;
   left: -30px;
   background: #158dfd;
 }
 
-.bauble.four {
+.bauble#four {
   top: 140px;
   left: 40px;
   background: #ff6956;
@@ -246,7 +299,7 @@ body {
   height: 15px;
 }
 
-.bauble.five {
+.bauble#five {
   top: 140px;
   left: -30px;
   background: #ff4dff;
@@ -254,7 +307,7 @@ body {
   height: 15px;
 }
 
-.bauble.six {
+.bauble#six {
   top: 150px;
   left: 90px;
   background: #158dfd;
@@ -321,6 +374,7 @@ body {
   border-left: 10px solid rgb(116, 65, 0);
   border-bottom: 10px solid rgb(116, 65, 0);
   border-right: 10px solid rgb(116, 65, 0);
+  visibility: hidden;
 }
 
 .pressie {
