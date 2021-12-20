@@ -71,7 +71,7 @@ function reset() {
         bg.width = window.innerWidth;
         bg.style.display = "none";
         document.getElementsByClassName(".tooltip.pressie")[0].style.left = 0;
-        document.getElementsByClassName(".star")[0].style.display = "none";
+        document.getElementsByClassName("overlay")[0].style.display = "";
     }
     updateSize();
     initSnow();
