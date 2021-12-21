@@ -162,6 +162,12 @@ function reset() {
     nameplaceholder.addEventListener("mouseover", () => {
         roleinfo.style.visibility = "visible";
     })
+    nameplaceholder.addEventListener("touchstart", () => {
+        roleinfo.style.visibility = "visible";
+    })
+    nameplaceholder.addEventListener("touchend", () => {
+        roleinfo.style.visibility = "visible";
+    })
     nameplaceholder.addEventListener("mouseleave", () => {
         roleinfo.style.visibility = "hidden";
     })
