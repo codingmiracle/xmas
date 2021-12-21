@@ -40,13 +40,53 @@ body {
   text-align: center;
 }
 
+.verified {
+  display: inline;
+}
+
+#v-logo{
+  display: none;
+  margin: auto;
+}
+
+.role-info {
+  position: absolute;
+  display: inline-block;
+  padding: 20px white;
+  background-color: white;
+  visibility: inherit;
+  color: black;
+  font-size: 20px;
+  border-radius: 10px;
+  width: 200px;
+  height: fit-content;
+  padding-bottom: 20px;
+  margin-top: 100px;
+  transform: translate(-100%, 0);
+  font-family: Arial, Helvetica, sans-serif;
+  visibility: hidden;
+}
+
+.role {
+  line-height: 30px;
+  font-size: 25px;
+}
+
+#prc {
+  border-radius: 5px;
+  border: 2px solid blue;
+  color: blue;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 #nameplaceholder {
   display: inline;
   color: var(--lightgreen);
-}
-
-#nameplaceholder:hover {
-  filter: drop-shadow(0 0 10px rgb(250, 238, 75));
+  /* filter: drop-shadow(0 0 10px rgb(250, 238, 75)); */
 }
 
 #bg-image {
@@ -60,7 +100,6 @@ body {
 /* canvas */
 #screen {
   position: absolute;
-  /* filter: drop-shadow(0 0 5px rgb(255, 255, 255)); glow um den schnee */
 }
 
 
@@ -124,9 +163,9 @@ body {
   right: 0;
   background: rgba(0, 0, 0, 0.7);
   transition: opacity 500ms;
-  visibility: visible;
+  visibility: hidden;
   opacity: 1;
-  display: none;
+  display: block;
 }
 .overlay:target {
   visibility: visible;
@@ -259,8 +298,8 @@ body {
 }
 
 .bauble {
-  z-index: 1;
-  position: relative;
+  z-index: 2;
+  position: absolute;
   border-radius: 100%;
   visibility: hidden;
   width: 20px;
@@ -268,7 +307,6 @@ body {
   background-color: crimson;
   touch-action: none;
   user-select: none;
-
 }
 
 .bauble#one {

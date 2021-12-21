@@ -3,7 +3,70 @@ var present = document.getElementsByClassName("pressie");
 var bubbles = document.getElementsByClassName("bauble");
 var tooltips = document.getElementsByClassName("tooltip");
 
-console.log(bubbles);
+class Bubble {
+
+    constructor(query) {
+        this.query = query;
+        this.x = query.getBoundingClientRect().left;
+        this.y = query.getBoundingClientRect().top;
+        this.size = query.getBoundingClientRect().width;
+        this.dragElement(query);
+    }
+
+    onbubble(x, y) {
+        let xdiff = this.x - mouseX;
+        let ydiff = this.y - mouseY;
+        if(Math.pow(xdiff, 2) + Math.pow(ydiff, 2) <= Math.pow(this.size, 2)) {
+            return true;
+        }
+        return false;
+    }
+
+    dragElement(elmnt) {
+        var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+        if (document.getElementById(elmnt.id + "header")) {
+            // if present, the header is where you move the DIV from:
+            document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+        } else {
+            // otherwise, move the DIV from anywhere inside the DIV:
+            elmnt.onmousedown = dragMouseDown;
+        }
+
+        function dragMouseDown(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // get the mouse cursor position at startup:
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            document.onmouseup = closeDragElement;
+            // call a function whenever the cursor moves:
+            document.onmousemove = elementDrag;
+        }
+
+        function elementDrag(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // calculate the new cursor position:
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            // set the element's new position:
+            elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+            elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+        }
+
+        function closeDragElement() {
+            // stop moving when mouse button is released:
+            document.onmouseup = null;
+            document.onmousemove = null;
+        }
+    }
+    
+}
+
+var dbubbles = new Array();
+
 
 function decorateTree() {
     tooltips[1].style.visibility = "hidden";
@@ -23,6 +86,7 @@ function decorateTree() {
         let size = Math.floor(Math.random() * 10) + 10;
         bubbles[i].style.width = size;
         bubbles[i].style.height = size;
+        bubbles[i].style.left = i*20 + "px";
     }
     for(let i = 0; i < lines.length; i++) {
         lines[i].style.visibility = "visible";
@@ -39,8 +103,10 @@ function decorateTree() {
                 bubbles[i].style.visibility = "visible";
             }, (Math.random()*500) + 500);
         }
-        
+        dbubbles.push(new Bubble(bubbles[i]));
     }
+    
+    console.log(dbubbles);
 }
 
 function resetanimations() {
@@ -66,153 +132,52 @@ function closepopup() {
 
 //drag and drop decoration:
 
-interact('.bauble')
-  .draggable({
-    onmove: function(event) {
-      const target = event.target;
+// interact('.bauble')
+//   .draggable({
+//     onmove: function(event) {
+//       const target = event.target;
 
-      const dataX = target.getAttribute('data-x');
-      const dataY = target.getAttribute('data-y');
-      const initialX = parseFloat(dataX) || 0;
-      const initialY = parseFloat(dataY) || 0;
+//       const dataX = target.getAttribute('data-x');
+//       const dataY = target.getAttribute('data-y');
+//       const initialX = parseFloat(dataX) || 0;
+//       const initialY = parseFloat(dataY) || 0;
 
-      const deltaX = event.dx;
-      const deltaY = event.dy;
+//       const deltaX = event.dx;
+//       const deltaY = event.dy;
 
-      const newX = initialX + deltaX;
-      const newY = initialY + deltaY;
+//       const newX = initialX + deltaX;
+//       const newY = initialY + deltaY;
 
-      target
-        .style
-        .transform = `translate(${newX}px, ${newY}px)`;
+//       target
+//         .style
+//         .transform = `translate(${newX}px, ${newY}px)`;
 
-      target.setAttribute('data-x', newX);
-      target.setAttribute('data-y', newY);
-    }
-  })
+//       target.setAttribute('data-x', newX);
+//       target.setAttribute('data-y', newY);
+//     }
+//   })
 
-  interact('.dropzone')
-  .dropzone({
-    accept: '.bauble',
-    overlap: 0.75,
-    ondropactivate: function (event) {
-      const item = event.relatedTarget
-      item.classList.add('dragging')
-    },
-    ondropdeactivate: function (event) {
-      const item = event.relatedTarget
-      item.classList.remove('dragging', 'cannot-drop')
-    },
-    ondragenter: function(event) {
-      const item = event.relatedTarget
-      item.classList.remove('cannot-drop')
-      item.classList.add('can-drop')
-    },
-    ondragleave: function(event) {
-      const item = event.relatedTarget
-      item.classList.remove('can-drop')
-      item.classList.add('cannot-drop')
-    },
+//   interact('.dropzone')
+//   .dropzone({
+//     accept: '.bauble',
+//     overlap: 0.75,
+//     ondropactivate: function (event) {
+//       const item = event.relatedTarget
+//       item.classList.add('dragging')
+//     },
+//     ondropdeactivate: function (event) {
+//       const item = event.relatedTarget
+//       item.classList.remove('dragging', 'cannot-drop')
+//     },
+//     ondragenter: function(event) {
+//       const item = event.relatedTarget
+//       item.classList.remove('cannot-drop')
+//       item.classList.add('can-drop')
+//     },
+//     ondragleave: function(event) {
+//       const item = event.relatedTarget
+//       item.classList.remove('can-drop')
+//       item.classList.add('cannot-drop')
+//     },
     
-  })
-
-
-// class MouseBubble {
-//     constructor(x, y) {
-//         this.x = x;
-//         this.y = y;
-//         this.size = 30;
-//         this.resize = false;
-//         this.show = true;
-//         this.clicked = false;
-//         this.fcounter = 0;
-//         document.addEventListener("click", this.handleClick)
-//     }
-
-//     draw() {
-//         if (this.show) {
-//             ctx.beginPath();
-//             ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
-//             ctx.strokeStyle = "white";
-//             ctx.stroke();
-//             ctx.beginPath()
-//             ctx.arc(this.x, this.y, this.size - 5, 0, 2 * Math.PI);
-//             ctx.fillStyle = "white";
-//             ctx.fill();
-//         }
-//         if(this.isHovered()) {
-//             ctx.font = "20px Arial white"
-//             ctx.fillText("Click here !", this.x, this.y - this.size - 20);
-//         }
-//         if (this.fcounter > 3) {
-//             if (this.size > 20 && !this.resize) {
-//                 this.size -= 1;
-//             } else {
-//                 this.resize = true
-//                 this.size += 1;
-//             }
-//             if (this.size < 30 && this.resize) {
-//                 this.size += 1;
-//             } else {
-//                 this.resize = false;
-//                 this.size -= 1;
-//             }
-//             this.fcounter = 0;
-//         }
-//         this.fcounter += 1;
-//     }
-
-//     setVisible() {
-//         this.show = true;
-//     }
-
-//     hide() {
-//         this.show = false;
-//     }
-
-//     isClicked() {
-//         return this.clicked;
-//     }
-
-//     reset() {
-//         this.clicked = false;
-//         this.show = false;
-//     }
-
-//     isHovered() {
-//         let xdiff = mouseX - this.x;
-//         let ydiff = mouseY - this.y;
-//         if (Math.pow(xdiff) + Math.pow(ydiff) <= Math.pow(this.size)) {
-//             return true;
-//         }
-//         return false;
-//     }
-
-//     handleClick() {
-//         if (this.isHovered()) {
-//             console.log(this);
-//             this.clicked = true;
-//             this.hide();
-//         }
-//     }
-// }
-
-// mouseBubbles = new Array();
-
-// function handlemouseBubbles() {
-//     mouseBubbles.forEach(bubble => {
-//         bubble.handleClick();
-//     });
-// }
-
-// function drawmouseBubbles() {
-//     mouseBubbles.forEach(bubble => {
-//         bubble.draw();
-//     });
-// }
-
-
-// - add Geschenke 
-// - add laptop with link to description page
-// - add present page
-// - link with myAwesomewebsite
+//   })

@@ -9,13 +9,13 @@
 
     <title>Merry Christmas!</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
-
 </head>
 
 <body>
     <img id="bg-image" class="img-responsive" src="media/background-winterlandscape.png">
     
+    <canvas id="screen"></canvas>
+
     <div class="tree-container">
         <a href="./yourpresent.html?">
         <div class="tooltip pressie" onclick="reset()">
@@ -64,8 +64,6 @@
         </div>
     </div>
 
-    <canvas id="screen"></canvas>
-
     <div class="tooltip decorate" onclick="decorateTree()">
         <div class="tooltiptext">Help decorating the tree !</div>
         <div class="mousebubble">
@@ -87,6 +85,16 @@
         <div class="text-box">
             Frohe Weihnachten
             <div id="nameplaceholder"></div>
+            <div class="verified">
+                <img id="v-logo" src="media/instagram-verified-logo.png" alt="">
+                <div class="role-info">
+                    <div class="role">A normal peep!</div>
+                    <div id="prc">90%</div>
+                    <div class="rarity">
+                        Howdy! Schau dich hier ein wenig um!
+                    </div>
+                </div>
+            </div>
             !
         </div>
     </div>
