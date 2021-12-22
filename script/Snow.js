@@ -55,6 +55,11 @@ function updateSnow() {
             snowflakes.splice(i, 1);
         }
     }
+
+    while (snowflakes.length < maxFlakes) {
+        snowflakes.push(new Snowflake(-10));
+    }
+
 }
 
 function drawSnow() {
