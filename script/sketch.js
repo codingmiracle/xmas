@@ -165,6 +165,9 @@ function reset() {
     nameplaceholder.addEventListener("touchstart", () => {
         roleinfo.style.visibility = "visible";
     })
+    nameplaceholder.addEventListener("click", () => {
+        roleinfo.style.visibility = "visible";
+    })
     nameplaceholder.addEventListener("touchend", () => {
         roleinfo.style.visibility = "visible";
     })

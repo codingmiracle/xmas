@@ -55,12 +55,6 @@ function updateSnow() {
             snowflakes.splice(i, 1);
         }
     }
-    if (!window.mobileCheck()) {
-        while (snowflakes.length < maxFlakes) {
-            snowflakes.push(new Snowflake(-10));
-        }
-    }
-
 }
 
 function drawSnow() {
