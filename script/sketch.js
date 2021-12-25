@@ -11,11 +11,11 @@ var roleinfo = document.getElementsByClassName("role-info")[0];
 var bf = "Benni";
 var eb = "Alex";
 var cf = ["Constantin", "Karsten"];
-var f = ["Dominik", "Jan", "Mario", "Nico"];
+var f = ["Dominik", "Jan", "Mario", "Nico", "Tim", "Max", "Marie", "Hemma", "Clemens", "Flo", "Verena", "Veronika", "Jakob", "Anna", ""];
 var t = ["Julia", "Prf. Kuran", "Prf. Tillich", "Prf. Birgman", "Prf. Willinger", "Prf. Peham"];
 var cm = ["Rafael", "Felix", "Marco", "Daniel", "Fabian", "Melanie", "Luka", "Paul", "Yasin", "Resul", "Mark", "Harun", "Manuel", ""];
 var z = ["DMZ", "Zauberer"];
-var dk = [""];
+var fam = ["jakob", "Ruth", "Thomas", "Marlies", "Gerald"];
 
 // speed adjustments
 var speed = 30;

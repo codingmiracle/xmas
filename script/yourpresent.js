@@ -1,7 +1,7 @@
 inspiring = new Array();
 inspiring.push({t:"Frohe Weihnachten!", l: "Deutsch"});
 inspiring.push({t:"Merry Christmas!", l: "Englisch"});
-inspiring.push({t:"Gmiedliche Weinocht!", l: "Österreichisch"});
+inspiring.push({t:"Gemiedliche Weinocht!", l: "Österreichisch"});
 inspiring.push({t:"Buon Natale!", l: "Ialienisch"});
 inspiring.push({t:"メリークリスマス!", l: "Japanisch"});
 inspiring.push({t:"Felicem natalem Christi!", l: "Latein"});
@@ -19,7 +19,7 @@ inspiring.push({t:"Veselé Vánoce!", l: "Tschechisch"});
 inspiring.push({t:"Glædelig jul!", l: "Dänisch"});
 inspiring.push({t:"Sretan Božić!", l: "Kroatisch"});
 inspiring.push({t:"Giáng sinh vui vẻ!", l: "Vietnamesisch"});
-inspiring.push({t:"Vesel božič!", l: "lowenisch"});
+inspiring.push({t:"Vesel božič!", l: "Slowenisch"});
 inspiring.push({t:"Gleðileg jól!", l: "Isländisch"});
 
 
